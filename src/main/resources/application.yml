@@ -1,0 +1,109 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: x2bee-bo
+  messages:
+    encoding: UTF-8
+    use-code-as-default-message: false
+    fallback-to-system-locale: true
+    basename:
+      message.admin.adminCommon
+
+
+app:
+  lang:
+    defaultCntryCd: KR
+    defaultSystemLanguage: ko
+
+mybatis:
+  type-aliases-package: kr.co.tumble.bo
+  mapper-locations: classpath:mapper/postgresql/admin/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+
+
+server:
+  servlet:
+    session:
+      timeout: 3600
+      cookie:
+        secure: true
+  shutdown: graceful
+
+management:
+  health:
+    defaults:
+      enabled: false
+  endpoint:
+    health:
+      show-details: never
+      show-components: never
+      probes:
+        enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+upload:
+  s3:
+    path: files/
+  common:
+    maxUploadSizePerFile: 10485760
+    maxUploadSizeImgFile: 10485760
+    maxUploadSize: 20971520
+    maxMpicUploadSizePerFile: 104857600
+    extension: jpg,jpeg,png,gif,csv,xls,xlsx,mp4,avi
+
+jasypt:
+  encryptor:
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+    key-obtention-iterations: 1000
+    pool-size: 1
+    salt-generator-classname: org.jasypt.salt.RandomSaltGenerator
+    iv-generator-classname: org.jasypt.iv.RandomIvGenerator
+    string-output-type: base64
+
+
+global:
+  response:
+    advice: false
+
+site:
+  info:
+    aop: false
+
+
+# restapi ??? ??? cookie ??
+cookies:
+  - site_no
+  - lang_cd
+  - sessNo
+
+
+# mail template root path
+mail:
+  template-root-path: email/bo
+
+springdoc:
+  swagger-ui:
+    path: /index.html
+    enabled: false
+  api-docs:
+    path: /api-docs
+    enabled: false
+
+---
+#
+# LOCAL Setting
+###########################################
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: 200 # ??? ? ?? thread? ? ??
+      min-spare: 100 # ?? ??? ????(idle) thread? ??
+    accept-count: 200 # ?? ?? ???

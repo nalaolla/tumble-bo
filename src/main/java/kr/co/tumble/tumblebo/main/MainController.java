@@ -22,10 +22,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class MainController {
 
-    @RequestMapping("/")
+    @RequestMapping({"/", "index"})
     public String getIndexPage(HttpServletRequest request, Model model) {
         return "index";
     }
+
+    @RequestMapping({ "index2"})
+    public String getIndexPage2(HttpServletRequest request, Model model) {
+            return "index2";
+        }
+
+    @RequestMapping({"index3"})
+    public String getIndexPage3(HttpServletRequest request, Model model) {
+            return "index3";
+        }
 
 
     @RequestMapping("/invoice")
