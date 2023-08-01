@@ -1,4 +1,4 @@
-package kr.co.tumble.tumblebo.main;
+package kr.co.tumble.bo.main;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;

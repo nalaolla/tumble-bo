@@ -1,4 +1,4 @@
-package kr.co.tumble.tumblebo;
+package kr.co.tumble.bo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
