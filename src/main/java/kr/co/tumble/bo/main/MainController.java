@@ -22,8 +22,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequiredArgsConstructor
 public class MainController {
 
+
+
     @RequestMapping({"/", "index"})
     public String getIndexPage(HttpServletRequest request, Model model) {
+
+
+
         return "index";
     }
 
