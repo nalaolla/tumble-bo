@@ -77,7 +77,7 @@ site:
     aop: false
 
 
-# restapi ??? ??? cookie ??
+# restapi
 cookies:
   - site_no
   - lang_cd
@@ -104,6 +104,6 @@ server:
   port: 8080
   tomcat:
     threads:
-      max: 200 # ??? ? ?? thread? ? ??
-      min-spare: 100 # ?? ??? ????(idle) thread? ??
-    accept-count: 200 # ?? ?? ???
+      max: 200
+      min-spare: 100
+    accept-count: 200
